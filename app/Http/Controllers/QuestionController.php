@@ -11,4 +11,18 @@ class QuestionController extends Controller
         $questions = QuestionModel::get_all();
         return view('question.index', compact('questions'));
     }
+
+    public function create() {
+        return view('question.create');
+    }
+
+    public function store(Request $request) {
+        //dd($request->all());
+        $data = $request->all();
+        unset($data["_token"]);
+        $question = QuestionModel::save($data);
+        if($question) {
+            return redirect('questions');
+        }
+    }
 }

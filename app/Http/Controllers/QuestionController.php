@@ -27,4 +27,20 @@ class QuestionController extends Controller
             return redirect('questions');
         }
     }
+
+    public function edit($id) {
+        $question = QuestionModel::find_by_id($id);
+
+        return view('question.edit', compact('question'));
+    }
+
+    public function update($id, Request $request) {
+        $question = QuestionModel::update($id, $request->all());
+        return redirect('/questions');
+    }
+
+    public function destroy($id) {
+        $deleted = QuestionModel::destroy($id);
+        return redirect('/questions');
+    }
 }

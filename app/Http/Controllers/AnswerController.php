@@ -15,7 +15,8 @@ class AnswerController extends Controller
     }
 
     public function create($question_id) {
-        return view('answer.create', compact('question_id'));
+        $question = QuestionModel::get_all()->where('id', $question_id)->first();
+        return view('answer.create', compact('question'));
     }
 
     public function store(Request $request, $question_id) {

@@ -16,6 +16,7 @@
                     <th>Judul</th>
                     <th>Isi</th>
                     <th>Aksi</th>
+                    <th>Detail</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +26,16 @@
                     <td>{{ $no }}</td>
                     <td>{{ $question->title }}</td>
                     <td>{{ $question->content }}</td>
-                    <td><a class="btn btn-primary" href="{{ url('/answers/create/'.$question->id) }}">Jawab</a><a class="btn btn-secondary ml-2" href="{{ url('/answers/'.$question->id) }}">Lihat Jawaban</a></td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" href="{{ url('/answers/create/'.$question->id) }}">Jawab</a>
+                        <a class="btn btn-sm btn-secondary ml-2" href="{{ url('/questions/'.$question->id.'/edit') }}">Edit</a>
+                        <form action="{{ url('/questions/'.$question->id) }}" method="post" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger ml-2"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </td>
+                    <td><a class="btn btn-sm btn-info" href="{{ url('/answers/'.$question->id) }}">Lihat Jawaban</a></td>
                 </tr>
                 @php $no++; @endphp
                 @endforeach

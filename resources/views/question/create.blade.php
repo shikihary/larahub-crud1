@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="col-sm-6 p-4">
-    <form action="/questions" method="post">
+    <form action="{{ url('/questions') }}" method="post">
         @csrf
         <div class="form-group">
           <label for="title">Judul</label>

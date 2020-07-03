@@ -4,7 +4,7 @@
     <div class="card m-5 p-2">
         <div class="card-header">
             <h2>Daftar Jawaban</h2><br>
-            <h3>Pertanyaan : </h3>
+            <b>Pertanyaan : </b>
             <p>{{ $questions->content }}</p>
         </div>
         <div class="card-body">

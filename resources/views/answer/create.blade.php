@@ -2,7 +2,9 @@
 
 @section('content')
   <div class="col-sm-6 p-4">
-    <form action="{{ url('/answers/'.$question_id) }}" method="post">
+    <b>Pertanyaan : </b>
+    <p>{{ $question->content }}</p>
+    <form action="{{ url('/answers/'.$question->id) }}" method="post">
         @csrf
         <div class="form-group">
           <label for="content">Jawaban</label>

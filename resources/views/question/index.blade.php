@@ -1,9 +1,12 @@
 @extends('layout.master')
 
 @section('content')
-    <div class="card">
+    <div class="card m-5 p-2">
         <div class="card-header">
-            <h2 class="card-title">Daftar Pertanyaan</h2>
+            <h2>Daftar Pertanyaan</h2>
+            <div class="card-tools">
+                <a class="btn btn-primary" href="{{ url('/questions/create') }}">Buat Pertanyaan</a>
+            </div>
         </div>
         <div class="card-body">
             <table class="table">
@@ -21,7 +24,7 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $question->title }}</td>
                     <td>{{ $question->content }}</td>
-                    <td><a class="btn btn-primary" href="{{ url('/answers/create/'.$question->id) }}">Jawab</a></td>
+                    <td><a class="btn btn-primary" href="{{ url('/answers/create/'.$question->id) }}">Jawab</a><a class="btn btn-secondary ml-2" href="{{ url('/answers/'.$question->id) }}">Lihat Jawaban</a></td>
                 </tr>
                 @endforeach
             </tbody>

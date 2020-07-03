@@ -65,11 +65,13 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+        
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
+                       
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
@@ -85,6 +87,7 @@
                 </div>
 
                 <div class="links">
+                    <a href="{{ url('/questions') }}" style="color:black;"><b>Pertanyaan</b></a>
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>

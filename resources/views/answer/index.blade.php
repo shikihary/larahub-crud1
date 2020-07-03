@@ -16,11 +16,13 @@
                 </tr>
             </thead>
             <tbody>
+                @php $no = 1; @endphp
                 @foreach($answers as $key => $answer)
                 <tr>
-                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $no }}</td>
                     <td>{{ $answer->content }}</td>
                 </tr>
+                @php $no++; @endphp
                 @endforeach
             </tbody>
             </table>

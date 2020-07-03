@@ -20,6 +20,7 @@ class QuestionController extends Controller
         //dd($request->all());
         $data = $request->all();
         $data['created_at'] =new \DateTime();
+        $data['updated_at'] =new \DateTime();
         unset($data["_token"]);
         $question = QuestionModel::save($data);
         if($question) {

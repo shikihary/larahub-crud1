@@ -19,13 +19,15 @@
                 </tr>
             </thead>
             <tbody>
+                @php $no = 1; @endphp
                 @foreach($questions as $key => $question)
                 <tr>
-                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $no }}</td>
                     <td>{{ $question->title }}</td>
                     <td>{{ $question->content }}</td>
                     <td><a class="btn btn-primary" href="{{ url('/answers/create/'.$question->id) }}">Jawab</a><a class="btn btn-secondary ml-2" href="{{ url('/answers/'.$question->id) }}">Lihat Jawaban</a></td>
                 </tr>
+                @php $no++; @endphp
                 @endforeach
             </tbody>
             </table>

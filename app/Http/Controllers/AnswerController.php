@@ -22,8 +22,9 @@ class AnswerController extends Controller
         //dd($request->all());
         //dd($question_id);
         $data = $request->all();
+        $data['created_at'] =new \DateTime();
         unset($data["_token"]);
-        $question = AnswerModel::save(['content'=>$data['content'], 'question_id'=>$question_id]);
+        $question = AnswerModel::save(['content'=>$data['content'], 'question_id'=>$question_id, 'created_at'=>$data['created_at']]);
         if($question) {
             return redirect('questions');
         }

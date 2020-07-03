@@ -4,6 +4,8 @@ namespace App\Models;
 use Illuminate\Support\Facades\DB;
 
 class AnswerModel {
+    public $timestamps = true;
+    
     public static function get_all() {
         $answers = DB::table('answers')->get();
         return $answers;

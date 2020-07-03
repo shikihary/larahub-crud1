@@ -19,6 +19,7 @@ class QuestionController extends Controller
     public function store(Request $request) {
         //dd($request->all());
         $data = $request->all();
+        $data['created_at'] =new \DateTime();
         unset($data["_token"]);
         $question = QuestionModel::save($data);
         if($question) {

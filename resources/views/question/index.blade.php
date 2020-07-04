@@ -35,7 +35,7 @@
                             <button type="submit" class="btn btn-sm btn-danger ml-2"><i class="fa fa-trash"></i></button>
                         </form>
                     </td>
-                    <td><a class="btn btn-sm btn-info" href="{{ url('/answers/'.$question->id) }}">Lihat Jawaban</a></td>
+                    <td><a class="btn btn-sm btn-info" href="{{ url('/questions/'.$question->id) }}">Show</a></td>
                 </tr>
                 @php $no++; @endphp
                 @endforeach

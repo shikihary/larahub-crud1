@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/questions', 'QuestionController@index');
 Route::post('/questions', 'QuestionController@store');
 Route::get('/questions/create', 'QuestionController@create');
+Route::get('/questions/{id}', 'QuestionController@show');
 Route::get('/questions/{id}/edit', 'QuestionController@edit');
 Route::put('/questions/{id}', 'QuestionController@update');
 Route::delete('/questions/{id}', 'QuestionController@destroy');

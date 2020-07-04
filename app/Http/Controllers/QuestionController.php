@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\QuestionModel;
+use App\Models\AnswerModel;
 
 class QuestionController extends Controller
 {
@@ -26,6 +27,13 @@ class QuestionController extends Controller
         if($question) {
             return redirect('questions');
         }
+    }
+
+    public function show($id) {
+        $question = QuestionModel::find_by_id($id);
+        $answers = AnswerModel::get_all()->where('question_id', $id);
+
+        return view('question.show', compact('question', 'answers'));
     }
 
     public function edit($id) {

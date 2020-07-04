@@ -18,7 +18,7 @@ class CreateAnswersTable extends Migration
             $table->string('content');
             $table->integer('like')->nullable();
             $table->integer('dislike')->nullable();
-            $table->smallInteger('choosed')->nullable();
+            $table->smallInteger('choosed')->default(0);
             $table->unsignedBigInteger('question_id');
             $table->timestamps();
 
